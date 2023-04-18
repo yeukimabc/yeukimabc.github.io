@@ -276,12 +276,12 @@
     });
 
     $("#btn-finish").click(function () {
+      isShowAnswer = true;
       saveAnswer(currentQuestionNo);
 
       alert("Correct answer: " + calculateCorrectPercent() + "%");
 
       showResult();
-      isShowAnswer = true;
       currentQuestionNo = 0;
       loadQuestion(currentQuestionNo);
 
