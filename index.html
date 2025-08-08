@@ -232,14 +232,14 @@
 <script src="quiz-1.js"></script>
 <script src="random-quiz-1.js"></script>
 <script>
-  var allQuiz = [quiz1, quiz2, quiz3, quiz4, quiz5, quiz6].concat(allRandomQuiz1);
+  var allQuiz = quiz.concat(allRandomQuiz1);
   var currentQuizNo = 0;
   var totalQuestions;
   var isShowAnswer = false;
   var currentQuestionNo = 0;
   var allUserAnswers = new Map();
   var answersValue = ["a", "b", "c", "d", "e"];
-  var quiz = quiz1;
+  var quiz = quiz[0];
 
   $(function () {
 
