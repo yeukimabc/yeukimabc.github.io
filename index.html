@@ -231,8 +231,10 @@
 
 <script src="quiz-1.js"></script>
 <script src="random-quiz-1.js"></script>
+<script src="quiz-mid.js"></script>
 <script>
-  var allQuiz = quiz.concat(allRandomQuiz1);
+  quiz.push(quiz_mid);
+  var allQuiz = quiz;
   var currentQuizNo = 0;
   var totalQuestions;
   var isShowAnswer = false;
@@ -295,7 +297,7 @@
     for (let i = 0; i < allQuiz.length; i++) {
       var quizOpion = $("<option>");
       quizOpion.attr("value", i);
-      quizOpion.text(((i <= 5) ? "CPF Quiz " : "CPF Random Quiz ") + (i + 1));
+      quizOpion.text(((i <= 5) ? "CPF Quiz " : "Quiz Midterm ") + (i + 1));
       quizSelect.append(quizOpion);
     }
   }
