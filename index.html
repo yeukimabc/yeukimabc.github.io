@@ -217,8 +217,8 @@
   <footer class="container-fluid">
     <span id="result">Correct <span id="correct-percent"></span>% <button id="btn-reset"
         class="btn btn-default btn-footer">Reset</button></span>
-    <button id="btn-previous" class="btn btn-default btn-footer">Previous</button>
-    <button id="btn-next" class="btn btn-default btn-footer">Next</button>
+    <button id="btn-previous" class="btn btn-default btn-footer">Previous ⬅️</button>
+    <button id="btn-next" class="btn btn-default btn-footer">Next ➡️</button>
     <button id="btn-finish" class="btn btn-default btn-footer hidden">Finish</button>
   </footer>
 
@@ -290,6 +290,17 @@
       $(this).hide();
     });
 
+    // Add keyboard navigation for left/right arrow
+    $(document).on('keydown', function(e) {
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT' || e.target.tagName === 'TEXTAREA') {
+        return; // Don't trigger when typing in input fields
+      }
+      if (e.key === 'ArrowLeft') {
+        $("#btn-previous").click();
+      } else if (e.key === 'ArrowRight') {
+        $("#btn-next").click();
+      }
+    });
   });
 
   function initUi() {
