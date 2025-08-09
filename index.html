@@ -262,6 +262,22 @@
       if (currentQuestionNo >= totalQuestions - 1) {
         return false;
       }
+
+      // Check if enough answers are selected
+      var question = quiz.results[currentQuestionNo];
+      var isMultipleChoice = question.assessment_type == "multi-select";
+      var correctCount = question.correct_response.length;
+      var selectedCount = $('input[name="answer"]:checked').length;
+
+      if ((!isMultipleChoice && selectedCount < 1) || (isMultipleChoice && selectedCount < correctCount)) {
+        var msg = isMultipleChoice
+          ? `You have not selected all required answers (${selectedCount}/${correctCount}). Do you want to continue?`
+          : 'You have not selected an answer. Do you want to continue?';
+        if (!confirm(msg)) {
+          return false;
+        }
+      }
+
       saveAnswer(currentQuestionNo);
 
       currentQuestionNo += 1;
